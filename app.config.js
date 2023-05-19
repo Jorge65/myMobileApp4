@@ -1,7 +1,7 @@
 import "dotenv/config";
 export default {
-  name: "myMobileApp3",
-  slug: "myMobileApp3",
+  name: "myMobileApp4",
+  slug: "myMobileApp4",
   extra: {
     env: process.env.ENV,
     uri: process.env.APOLLO_URI,    
