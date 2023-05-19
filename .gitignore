@@ -1,0 +1,22 @@
+node_modules/
+.expo/
+.env
+
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+
+# backend
+backend-rate-repository-api/database.sqlite
+backend-rate-repository-api/.env
+backend-rate-repository-api/node_modules
+
+# macOS
+.DS_Store
