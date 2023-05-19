@@ -40,7 +40,7 @@ describe('Form', () => {
     const onSubmit = jest.fn();
     render(<Form onSubmit={onSubmit} />);
 
-    screen.debug();
+    //screen.debug();
     
     fireEvent.changeText(screen.getByPlaceholderText('Username'), 'kalle');
     fireEvent.changeText(screen.getByPlaceholderText('Password'), 'password');

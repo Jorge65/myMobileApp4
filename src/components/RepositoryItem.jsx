@@ -2,7 +2,7 @@ import { Image, View, StyleSheet } from "react-native";
 import theme from "../theme";
 import Text from './Text';
 
-const TwoRowInfo = ({ text, number }) => {
+const TwoRowInfo = ({ text, number, testID }) => {
   const styles = StyleSheet.create({
     number: {
       fontWeight: theme.fontWeights.bold,
@@ -14,7 +14,9 @@ const TwoRowInfo = ({ text, number }) => {
     },
   });
   return (
-    <View>
+    <View 
+      testID={testID}
+    > 
       <Text style={styles.count}>{number}</Text>
       <Text style={styles.text}>{text}</Text>
     </View>
@@ -63,42 +65,66 @@ const styles = StyleSheet.create({
 const RepositoryItem = ({ props }) => {
   //console.log("...", props)
   return (
-    <View style={styles.container}>
+    <View 
+      testID="repositoryItem"
+      style={styles.container}>
       <View style={styles.upperContainer}>
         <Image
+          testID="avatar"
           style={styles.image}
           source={{ uri: props.ownerAvatarUrl }}
         ></Image>
           <View style={styles.basicDataView}>
-            <Text fontSize='subheading' fontWeight='bold'>Full name: 
+            <Text 
+              testID="fullname" 
+              fontSize='subheading' 
+              fontWeight='bold'
+            >
+              Full name: 
               {props.fullName}
             </Text>
-            <Text>Description: {props.description}</Text>
-            <Text style={styles.importantInfo}>
-                Language: {props.language}
+            <Text
+              testID="description"
+            >
+              Description: 
+              {props.description}
+            </Text>
+            <Text 
+              testID="language" 
+              style={styles.importantInfo}
+            >
+              Language: {props.language}
             </Text>
             </View>
         </View>
       <View style={styles.lowerContainer}>
-        <TwoRowInfo text="Stars" 
+        <TwoRowInfo 
+          testID="stars"
+          text="Stars" 
           number={
             props.stargazersCount > 1000
               ? (props.stargazersCount / 1000).toFixed(2).slice(0, -1) + "k"
               : props.stargazersCount
           } />
-        <TwoRowInfo text="Forks" 
+        <TwoRowInfo 
+          testID="forks"
+          text="Forks" 
           number={
             props.forksCount > 1000
               ? (props.forksCount / 1000).toFixed(2).slice(0, -1) + "k"
               : props.forksCount
           } />
-        <TwoRowInfo text="Reviews" 
+        <TwoRowInfo 
+          testID="reviews"
+          text="Reviews" 
           number={
             props.reviewCount > 1000
               ? (props.reviewCount / 1000).toFixed(2).slice(0, -1) + "k"
               : props.reviewCount
           } />
-        <TwoRowInfo text="Rating" 
+        <TwoRowInfo 
+          testID="rating"
+          text="Rating" 
           number={
             props.ratingAverage > 1000
               ? (props.ratingAverage / 1000).toFixed(2).slice(0, -1) + "k"

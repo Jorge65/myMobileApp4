@@ -5,7 +5,7 @@ This repo includes the implemented exercises for the FullStackOpen ReactNative c
 
 Part d: Testing and extending our application:
 
-- Exercise 10.17: ...coming...
+- Exercise 10.17: testing the reviewed repositories list
 - Exercise 10.18: ...coming...
 - Exercise 10.19: ...coming...
 - Exercise 10.20: ...coming...
@@ -20,8 +20,9 @@ Part d: Testing and extending our application:
 The backend can be found in the subdirectory
 - backend-rate-repository-api
 
-Tested environments:
+Tested devices and environments:
 - Real device: iPadPro 11 - iPadOS 16.4.1
 - Real device: Samsung S21+ - Android v13
 - Simulator/MacPro: ipadPro (Xcode v13.2.1)
+- Simulator/MacPro: Pixel 6 Pro API 33 (Android Studio 2022.2.1)
 - Web browser (Chrome Version 113.0.5672.92)
