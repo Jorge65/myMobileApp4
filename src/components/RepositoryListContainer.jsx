@@ -20,7 +20,7 @@ const RepositoryListContainer = ({ repositories }) => {
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}
       // other props
-      renderItem={({item}) => <RepositoryItem props={item} />}
+      renderItem={({item}) => <RepositoryItem repositoryNode={item} />}
     />
   );
 };

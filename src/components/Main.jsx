@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router-native';
 //import Constants from 'expo-constants';
 
 import RepositoryList from './RepositoryList';
+import SingleRepository from "./SingleRepository";
+
 //import Text from './Text';
 import AppBar from './AppBar';
 import SignIn from './SignIn';
@@ -23,9 +25,12 @@ const Main = () => {
       <Routes>
         <Route path="/" element={<RepositoryList />} exact />
         <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/repository/:id" element={<SingleRepository />} />
       </Routes>
     </View>
   );
 };
+
+
 
 export default Main;

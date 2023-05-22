@@ -29,6 +29,18 @@ export const GET_REPOSITORIES = gql`
   ${REPOSITORY_DATA}
 `;
 
+export const GET_REPOSITORY = gql`
+  query getRepository(
+    $id: ID!, 
+    ) {
+    repository(id: $id) {
+      ...RepositoryData
+      url
+    }
+  }
+  ${REPOSITORY_DATA}
+`;
+
 export const GET_ME = gql`
   query getMe {
     me {
@@ -36,7 +48,8 @@ export const GET_ME = gql`
       username
     }
   }
-
 `;
+
+
 
 // other queries...

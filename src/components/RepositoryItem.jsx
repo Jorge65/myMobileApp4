@@ -1,4 +1,5 @@
-import { Image, View, StyleSheet } from "react-native";
+import { Image, View, StyleSheet, Pressable } from "react-native";
+import { useNavigate } from "react-router-native";
 import theme from "../theme";
 import Text from './Text';
 
@@ -62,75 +63,92 @@ const styles = StyleSheet.create({
     },
   });
 
-const RepositoryItem = ({ props }) => {
-  //console.log("...", props)
+const RepositoryItem = ({ repositoryNode, loading, repositoryID }) => {
+  console.log("...repositoryNode...", repositoryNode)
+
+  const navigate = useNavigate();
+
+  if (!repositoryNode && loading) {
+    return (
+      <Text 
+        style={{ textAlign: "left" }}>
+        Loading... 
+      </Text>
+    )
+  }
+
   return (
     <View 
       testID="repositoryItem"
       style={styles.container}>
-      <View style={styles.upperContainer}>
-        <Image
-          testID="avatar"
-          style={styles.image}
-          source={{ uri: props.ownerAvatarUrl }}
-        ></Image>
-          <View style={styles.basicDataView}>
-            <Text 
-              testID="fullname" 
-              fontSize='subheading' 
-              fontWeight='bold'
-            >
-              Full name: 
-              {props.fullName}
-            </Text>
-            <Text
-              testID="description"
-            >
-              Description: 
-              {props.description}
-            </Text>
-            <Text 
-              testID="language" 
-              style={styles.importantInfo}
-            >
-              Language: {props.language}
-            </Text>
-            </View>
+      <Pressable 
+          onPress={ () => 
+            !repositoryID && navigate(`/repository/${repositoryNode.id}`) 
+          }>
+        <View style={styles.upperContainer}>
+          <Image
+            testID="avatar"
+            style={styles.image}
+            source={{ uri: repositoryNode.ownerAvatarUrl }}
+          ></Image>
+            <View style={styles.basicDataView}>
+              <Text 
+                testID="fullname" 
+                fontSize='subheading' 
+                fontWeight='bold'
+              >
+                Full name: 
+                {repositoryNode.fullName}
+              </Text>
+              <Text
+                testID="description"
+              >
+                Description: 
+                {repositoryNode.description}
+              </Text>
+              <Text 
+                testID="language" 
+                style={styles.importantInfo}
+              >
+                Language: {repositoryNode.language}
+              </Text>
+              </View>
+          </View>
+        <View style={styles.lowerContainer}>
+          <TwoRowInfo 
+            testID="stars"
+            text="Stars" 
+            number={
+              repositoryNode.stargazersCount > 1000
+                ? (repositoryNode.stargazersCount / 1000).toFixed(2).slice(0, -1) + "k"
+                : repositoryNode.stargazersCount
+            } />
+          <TwoRowInfo 
+            testID="forks"
+            text="Forks" 
+            number={
+              repositoryNode.forksCount > 1000
+                ? (repositoryNode.forksCount / 1000).toFixed(2).slice(0, -1) + "k"
+                : repositoryNode.forksCount
+            } />
+          <TwoRowInfo 
+            testID="reviews"
+            text="Reviews" 
+            number={
+              repositoryNode.reviewCount > 1000
+                ? (repositoryNode.reviewCount / 1000).toFixed(2).slice(0, -1) + "k"
+                : repositoryNode.reviewCount
+            } />
+          <TwoRowInfo 
+            testID="rating"
+            text="Rating" 
+            number={
+              repositoryNode.ratingAverage > 1000
+                ? (repositoryNode.ratingAverage / 1000).toFixed(2).slice(0, -1) + "k"
+                : repositoryNode.ratingAverage
+            } />
         </View>
-      <View style={styles.lowerContainer}>
-        <TwoRowInfo 
-          testID="stars"
-          text="Stars" 
-          number={
-            props.stargazersCount > 1000
-              ? (props.stargazersCount / 1000).toFixed(2).slice(0, -1) + "k"
-              : props.stargazersCount
-          } />
-        <TwoRowInfo 
-          testID="forks"
-          text="Forks" 
-          number={
-            props.forksCount > 1000
-              ? (props.forksCount / 1000).toFixed(2).slice(0, -1) + "k"
-              : props.forksCount
-          } />
-        <TwoRowInfo 
-          testID="reviews"
-          text="Reviews" 
-          number={
-            props.reviewCount > 1000
-              ? (props.reviewCount / 1000).toFixed(2).slice(0, -1) + "k"
-              : props.reviewCount
-          } />
-        <TwoRowInfo 
-          testID="rating"
-          text="Rating" 
-          number={
-            props.ratingAverage > 1000
-              ? (props.ratingAverage / 1000).toFixed(2).slice(0, -1) + "k"
-              : props.ratingAverage
-          } />
-      </View>
+        </Pressable>
     </View>  
   );
 }
