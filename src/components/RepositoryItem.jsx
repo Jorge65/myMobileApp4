@@ -1,5 +1,6 @@
 import { Image, View, StyleSheet, Pressable } from "react-native";
 import { useNavigate } from "react-router-native";
+import * as Linking from 'expo-linking';
 import theme from "../theme";
 import Text from './Text';
 
@@ -13,6 +14,7 @@ const TwoRowInfo = ({ text, number, testID }) => {
       color: theme.colors.desc,
       textAlign: "center",
     },
+
   });
   return (
     <View 
@@ -61,9 +63,17 @@ const styles = StyleSheet.create({
       borderRadius: 5,
       alignSelf: "flex-start",
     },
+    button: {
+      backgroundColor: theme.backgroundColors.button,
+      color: "white",
+      textAlign: "center",
+      padding: 10,
+      borderRadius: 10,
+      marginTop: 10,
+    },
   });
 
-const RepositoryItem = ({ repositoryNode, loading, repositoryID }) => {
+const RepositoryItem = ({ repositoryNode, loading, repositoryId }) => {
   console.log("...repositoryNode...", repositoryNode)
 
   const navigate = useNavigate();
@@ -83,7 +93,7 @@ const RepositoryItem = ({ repositoryNode, loading, repositoryID }) => {
       style={styles.container}>
       <Pressable 
           onPress={ () => 
-            !repositoryID && navigate(`/repository/${repositoryNode.id}`) 
+            !repositoryId && navigate(`/repository/${repositoryNode.id}`) 
           }>
         <View style={styles.upperContainer}>
           <Image
@@ -148,6 +158,19 @@ const RepositoryItem = ({ repositoryNode, loading, repositoryID }) => {
                 : repositoryNode.ratingAverage
             } />
         </View>
+
+        {repositoryId && (
+          <Pressable 
+            onPress={() =>
+              Linking.openURL(repositoryNode.url)}>
+            <Text
+              style={styles.button}
+              fontWeight="bold" >
+              Open in GitHub 
+            </Text>
+          </Pressable>
+        )}
+
         </Pressable>
     </View>  
   );
