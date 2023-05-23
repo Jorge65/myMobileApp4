@@ -3,11 +3,6 @@ import { FlatList, View, StyleSheet } from 'react-native';
 import RepositoryListContainer from './RepositoryListContainer'
 import useRepositories from '../hooks/useRepositories';
 
-const styles = StyleSheet.create({
-  separator: {
-    height: 10,
-  },
-});
 
 const RepositoryList = () => {
   const { repositories } = useRepositories();

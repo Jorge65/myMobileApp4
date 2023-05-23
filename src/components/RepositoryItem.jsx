@@ -26,13 +26,12 @@ const TwoRowInfo = ({ text, number, testID }) => {
   );
 };
 
-
 const styles = StyleSheet.create({
     container: {
       backgroundColor: theme.backgroundColors.repositoryItem,
       padding: 20,
-      marginVertical: 8,
-      marginHorizontal: 16,
+      marginBottom: 10,
+      marginHorizontal: 10,
     },
     upperContainer: { 
       backgroundColor: theme.backgroundColors.repositoryItem,
@@ -74,7 +73,7 @@ const styles = StyleSheet.create({
   });
 
 const RepositoryItem = ({ repositoryNode, loading, repositoryId }) => {
-  console.log("...repositoryNode...", repositoryNode)
+  //console.log("...repositoryNode...", repositoryNode)
 
   const navigate = useNavigate();
 

@@ -12,5 +12,22 @@ export const REPOSITORY_DATA = gql`
     reviewCount
     ratingAverage
     url
+    watchersCount
+    reviews {
+      edges {
+        node {
+          rating
+          user {
+            id
+            username
+          }
+          createdAt
+          text
+          id
+        }
+      }
+      totalCount
+
+    }
   }
 `;

@@ -24,7 +24,7 @@ const theme = {
       repositoryItem: "white",
       importantInfo: 'blue',
       button: 'blue',
-      mainBackground: 'grey',
+      mainBackground: 'lightgrey',
       error: "#d73a4a",
     },
   };
