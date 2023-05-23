@@ -52,6 +52,9 @@ const AppBar = () => {
           <Link to="/">
             <Text style={styles.pressable}>Repositories</Text>
           </Link>
+          <Link to="/create">
+              <Text style={styles.pressable}>Create a review</Text>
+          </Link>
           <Pressable onPress={ signOut }>
             <Text style={ styles.pressable }>Sign out</Text>
           </Pressable>
