@@ -3,7 +3,9 @@ import { SIGN_IN } from "../graphql/mutations";
 import { useAuthStorage } from "./useAuthStorage";
 
 const useSignIn = () => {
-  const [signInMutate, result] = useMutation(SIGN_IN);
+  const [signInMutate, result] = useMutation(SIGN_IN, {
+    onError: (error) => window.alert(error),
+  });
 
   //const authStorage = useContext(AuthStorageContext);
   const authStorage = useAuthStorage();
