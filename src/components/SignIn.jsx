@@ -20,7 +20,10 @@ const validationSchema = yup.object().shape({
 export const SignInComponent = ({ onSubmit }) => {
   return (
     <Formik
-      initialValues={{ username: '', password: '' }}
+      initialValues={{ 
+        username: '', 
+        password: '' 
+      }}
       onSubmit={onSubmit}
       validationSchema={validationSchema}
     >
