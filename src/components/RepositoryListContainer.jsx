@@ -1,8 +1,8 @@
 import { FlatList, View, StyleSheet } from 'react-native';
 import RepositoryItem from './RepositoryItem'
+import SortFilter from "./SortFilter";
 
-
-const RepositoryListContainer = ({ repositories }) => {
+const RepositoryListContainer = ({ repositories, refetch }) => {
   const repositoryNodes = repositories
     ? repositories.edges.map((edge) => edge.node)
     : [];
@@ -11,7 +11,14 @@ const RepositoryListContainer = ({ repositories }) => {
   return (
     <FlatList
       data={repositoryNodes}
-      // other props
+      ListHeaderComponent={
+          <SortFilter
+            refetch={refetch}
+          />
+      }
+      ListHeaderComponentStyle={{ 
+        zIndex: 100 
+      }}
       renderItem={({item}) => <RepositoryItem repositoryNode={item} />}
     />
   );

@@ -5,10 +5,13 @@ import useRepositories from '../hooks/useRepositories';
 
 
 const RepositoryList = () => {
-  const { repositories } = useRepositories();
+  const { repositories, refetch } = useRepositories();
   //console.log("...repositories...", repositories)
   return (
-    <RepositoryListContainer repositories={repositories} />
+    <RepositoryListContainer 
+      repositories={repositories} 
+      refetch={refetch}
+    />
   );
 };
 
