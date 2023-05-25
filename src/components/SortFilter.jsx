@@ -3,24 +3,21 @@ import { PaperProvider, Menu, Button } from "react-native-paper";
 
 const SortFilter = ({ refetch }) => {
   const [visible, setVisible] = useState(false);
-  const [sortType, setSortType] = useState("Latest repositories");
+  const [sortType, setSortType] = useState("Latest");
 
-  const handleSelected = (selected) => {
-    setSortType(selected);
-    if (selected === "Highest Rate") {
+  const handleSelected = (selection) => {
+    setSortType(selection);
+    if (selection === "Highest Rate") {
       refetch({ orderBy: "RATING_AVERAGE", orderDirection: "DESC" });
-    } else if (selected === "Lowest Rate") {
+    } else if (selection === "Lowest Rate") {
       refetch({ orderBy: "RATING_AVERAGE", orderDirection: "ASC" });
-    } else if (selected === "Latest") {
+    } else if (selection === "Latest") {
       refetch({ orderBy: "CREATED_AT", orderDirection: "DESC" });
     } else {
       refetch({ orderBy: "CREATED_AT", orderDirection: "DESC" });
     }
     closeMenu();
   };
-
-  const openMenu = () => { setVisible(true) }
-  const closeMenu = () => { setVisible(false) }
 
   return (
     <PaperProvider>
@@ -31,10 +28,10 @@ const SortFilter = ({ refetch }) => {
           top: 100, 
           left: 50, 
           zIndex: 100 }}
-        onDismiss={closeMenu}
+        onDismiss={ () => { setVisible(false) }}
         anchor={
           <Button
-            onPress={openMenu}
+            onPress={ () => { setVisible(true) } }
             icon="menu-down"
             contentStyle={{ 
               flexDirection: "row-reverse",
@@ -51,7 +48,7 @@ const SortFilter = ({ refetch }) => {
         />
         <Menu.Item
           style={{ backgroundColor: "white" }}
-          onPress={() => handleSelected("Latest repositories")}
+          onPress={() => handleSelected("Latest")}
           title="Latest repositories"
         />
         <Menu.Item
