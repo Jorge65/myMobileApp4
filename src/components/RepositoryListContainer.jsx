@@ -1,6 +1,7 @@
 import { FlatList, View, StyleSheet } from 'react-native';
 import RepositoryItem from './RepositoryItem'
 import SortFilter from "./SortFilter";
+import SearchFilter from "./SearchFilter";
 
 const RepositoryListContainer = ({ repositories, refetch }) => {
   const repositoryNodes = repositories
@@ -12,9 +13,14 @@ const RepositoryListContainer = ({ repositories, refetch }) => {
     <FlatList
       data={repositoryNodes}
       ListHeaderComponent={
+        <>
+          <SearchFilter
+            refetch={refetch}
+          />
           <SortFilter
             refetch={refetch}
           />
+        </>
       }
       ListHeaderComponentStyle={{ 
         zIndex: 100 
