@@ -5,13 +5,13 @@ const SortFilter = ({ refetch }) => {
   const [visible, setVisible] = useState(false);
   const [sortType, setSortType] = useState("Latest repositories");
 
-  const handleSelected = (selection) => {
-    setSortType(selection);
-    if (selection === "HighestRate") {
+  const handleSelected = (selected) => {
+    setSortType(selected);
+    if (selected === "Highest Rate") {
       refetch({ orderBy: "RATING_AVERAGE", orderDirection: "DESC" });
-    } else if (selection === "LowestRate") {
+    } else if (selected === "Lowest Rate") {
       refetch({ orderBy: "RATING_AVERAGE", orderDirection: "ASC" });
-    } else if (selection === "Latest") {
+    } else if (selected === "Latest") {
       refetch({ orderBy: "CREATED_AT", orderDirection: "DESC" });
     } else {
       refetch({ orderBy: "CREATED_AT", orderDirection: "DESC" });
