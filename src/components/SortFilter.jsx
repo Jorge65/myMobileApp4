@@ -16,7 +16,7 @@ const SortFilter = ({ refetch }) => {
     } else {
       refetch({ orderBy: "CREATED_AT", orderDirection: "DESC" });
     }
-    closeMenu();
+    setVisible(false)
   };
 
   return (
