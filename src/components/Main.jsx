@@ -4,8 +4,8 @@ import { Route, Routes } from 'react-router-native';
 
 import RepositoryList from './RepositoryList';
 import SingleRepository from "./SingleRepository";
+import MyReviews from "./MyReviews";
 
-//import Text from './Text';
 import AppBar from './AppBar';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
@@ -29,12 +29,11 @@ const Main = () => {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/create" element={<CreateReview />} />
+        <Route path="/my-reviews" element={<MyReviews />} />
         <Route path="/repository/:id" element={<SingleRepository />} />
       </Routes>
     </View>
   );
 };
-
-
 
 export default Main;

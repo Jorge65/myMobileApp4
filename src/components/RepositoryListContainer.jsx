@@ -23,7 +23,7 @@ const RepositoryListContainer = ({ repositories, refetch }) => {
         </>
       }
       ListHeaderComponentStyle={{ 
-        zIndex: 100 
+        zIndex: 1 
       }}
       renderItem={({item}) => <RepositoryItem repositoryNode={item} />}
     />

@@ -50,6 +50,24 @@ export const GET_ME = gql`
   }
 `;
 
-
-
-// other queries...
+export const GET_ME2 = gql`
+  query getMe2($includeReviews: Boolean = false) {
+    me {
+      id
+      username
+      reviewCount
+      reviews @include(if: $includeReviews) {
+        edges {
+          node {
+            rating
+            repository {
+              fullName
+            }
+            createdAt
+            text
+            }
+        }
+      }
+    }
+  }
+`;

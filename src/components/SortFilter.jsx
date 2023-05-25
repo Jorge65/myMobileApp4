@@ -27,7 +27,7 @@ const SortFilter = ({ refetch }) => {
           borderWidth: 1, 
           top: 100, 
           left: 50, 
-          zIndex: 100 }}
+          zIndex: 1 }}
         onDismiss={ () => { setVisible(false) }}
         anchor={
           <Button

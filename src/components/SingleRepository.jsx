@@ -47,17 +47,16 @@ const ReviewItem = ({ review }) => {
   });
 
   //console.log("...review...", review)
-
   return (
     <View style={styles.repositoryContainer} >
       <View style={styles.reviewContainer}>
         <Text 
-          color="textPrimary"
           fontWeight="bold" 
           style={styles.rating}
         >
           {review.rating}
         </Text>
+        
         <View style={styles.infoArea}>
           <Text 
             fontWeight="bold"
@@ -65,15 +64,16 @@ const ReviewItem = ({ review }) => {
           >
             {review.user.username}
           </Text>
-          <Text
-            >
-            {format(new Date(review.createdAt), "dd.mm.yyyy")}
+
+          <Text>
+            {format(new Date(review.createdAt), "dd.MM.yyyy")}
           </Text>
+
           <Text
-            style={styles.reviewText}
-          >
+            style={styles.reviewText}>
             {review.text}
           </Text>
+
         </View>
       </View>
     </View>
