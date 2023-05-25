@@ -4,10 +4,9 @@ import { View } from "react-native";
 import Text from "./Text";
 import theme from "../theme";
 
-// Single review item
 const MyReviewItem = ({ review }) => {
 
-  console.log("...myReviewItem-review", review)
+  //console.log("...myReviewItem-review", review)
 
   const styles = StyleSheet.create({
     reviewContainer: {

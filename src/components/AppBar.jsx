@@ -30,16 +30,16 @@ const AppBar = () => {
   let meLoggedIn = false
 
   if (!meData.data?.me) {
-    console.log("...meData.me...", meData.data?.me)
-    console.log("...meData.me.username...", meData.data?.me?.username)
+    //console.log("...meData.me...", meData.data?.me)
+    //console.log("...meData.me.username...", meData.data?.me?.username)
     meLoggedIn = true
   } else {
-    console.log("...meData.me...", meData.data?.me)
+    //console.log("...meData.me...", meData.data?.me)
     meLoggedIn = false
   }
 
   const signOut = () => {
-    console.log("...signOut starts...")    
+    //console.log("...signOut starts...")    
     authStorage.removeAccessToken();
     apolloClient.resetStore();
     navigate("/");

@@ -15,7 +15,7 @@ const authStorage = new AuthStorage();
 const apolloClient = createApolloClient(authStorage);
 
 const App = () => {
-  console.log("...Constants.manifest....", Constants.manifest);
+  //console.log("...Constants.manifest....", Constants.manifest);
   return (
     <>
       <NativeRouter>

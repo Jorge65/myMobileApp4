@@ -83,8 +83,8 @@ const CreateReview = () => {
       });
       //console.log("...after createReview call...")
       navigate(`/repository/${review.data.createReview.repositoryId}`);
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.log(error);
     }
   };
 

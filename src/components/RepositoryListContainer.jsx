@@ -1,4 +1,4 @@
-import { FlatList, View, StyleSheet } from 'react-native';
+import { FlatList } from 'react-native';
 import RepositoryItem from './RepositoryItem'
 import SortFilter from "./SortFilter";
 import SearchFilter from "./SearchFilter";

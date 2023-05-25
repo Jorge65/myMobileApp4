@@ -1,6 +1,5 @@
 import { StyleSheet, View } from 'react-native';
 import { Route, Routes } from 'react-router-native';
-//import Constants from 'expo-constants';
 
 import RepositoryList from './RepositoryList';
 import SingleRepository from "./SingleRepository";
