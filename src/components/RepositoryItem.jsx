@@ -70,6 +70,10 @@ const styles = StyleSheet.create({
       borderRadius: 10,
       marginTop: 10,
     },
+    descriptionText: {
+      paddingTop: 5,
+      paddingBottom: 5,
+    },
   });
 
 const RepositoryItem = ({ repositoryNode, loading, repositoryId }) => {
@@ -110,6 +114,7 @@ const RepositoryItem = ({ repositoryNode, loading, repositoryId }) => {
                 {repositoryNode.fullName}
               </Text>
               <Text
+                style={styles.descriptionText}
                 testID="description"
               >
                 Description: 
